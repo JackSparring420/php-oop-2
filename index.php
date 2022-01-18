@@ -44,17 +44,21 @@
             public function __toString() {
     
                 return $this -> getNome() . " " . $this -> getCognome(). ": " . $this -> getDataNascita();;
-            }    
+            }
+            
         }
-          
+        
+        
+        
         class Employee extends Persona {
             private $stipendio;
             private $dataAssunzione;
             
-            public function __construct($stipendio, $dataAssunzione) {
+            public function __construct($nome, $cognome, $stipendio) {
                 
+                parent::__construct($nome, $cognome);
+
                 $this -> setStipendio($stipendio);
-                $this -> setDataAssunzione($dataAssunzione);
             }
             
             public function getStipendio() {
@@ -90,9 +94,8 @@
         echo $p1 . "<br>";
         echo $p1 -> printFullPerson(). "<br>";
 
-        $e1 = new Employee("1500", "08/09/2021");
-        $e1 -> setNome("Emanuele");
-        $e1 -> setCognome("Arconte");
+        $e1 = new Employee("Emanuele", "Arconte", "1500");
+        $e1 -> setDataAssunzione("08/09/2021");
         echo $e1 -> printFullEmployee() . "<br>";
         echo $e1 . "<br>";
         ?>
